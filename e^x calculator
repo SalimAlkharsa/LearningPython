@@ -1,0 +1,27 @@
+#This project is a practice for me and my target is to blend what I learned in Calculus to make a
+#calculator that can find e^x w an error under 10^-8.
+
+
+#Begin
+#Creating the variables
+x = int(input("Enter a degree x for calculating e^x: "))
+n = 0
+solving = int(1)
+term = float(0)
+
+#Creating a function which calculates answer
+def calculator(x, n, solving, term):
+    term = float(0)
+    #Creating a function which calculates the factorial
+    def factorial(n):
+        solving = 1
+        for i in range(1, n+1):
+            solving = solving * i
+        return solving
+    while n < 30:   #This chunk of code should find the series for n terms.
+        term = float(x**n/factorial(n) + term)
+        n += 1
+        print(term)
+
+#Printing
+calculator(x, n, solving, term)
